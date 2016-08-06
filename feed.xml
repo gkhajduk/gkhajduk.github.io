@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Migration and a new website</title>
+        <description>
+          
+          Soon after I decided to step up my blogging game (see my previous post) a few things happened, including a friend’s blog on Blogger being deleted without any warning or explanation. All content gone forever. This was the push I needed: I’ve been thinking about building my own website for...
+        </description>
+        <pubDate>Sat, 06 Aug 2016 00:00:00 +0100</pubDate>
+        <link>http://gkhajduk.github.io/2016-08-06-migration-and-new-website/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2016-08-06-migration-and-new-website/</guid>
+      </item>
+    
+      <item>
         <title>Getting PhDing back on track!</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Thu, 22 Oct 2015 23:52:00 +0100</pubDate>
         <link>http://gkhajduk.github.io/2015-10-22-fieldwork-almost-there/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2015-10-22-fieldwork-almost-there/</guid>
-      </item>
-    
-      <item>
-        <title>In-between fieldwork: Eastern rosella</title>
-        <description>
-          
-          Those little colourful guys are not as common as Crimson rosellas, yet are fairly easy to see, I think I&#39;ve seen a couple of them at least every other day. They are easier to spook than the crimsons though and don&#39;t seem to hang out in big groups. Eastern rosellas...
-        </description>
-        <pubDate>Tue, 20 Oct 2015 23:14:00 +0100</pubDate>
-        <link>http://gkhajduk.github.io/2015-10-20-in-between-fieldwork-eastern-rosella/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2015-10-20-in-between-fieldwork-eastern-rosella/</guid>
       </item>
     
   </channel>
