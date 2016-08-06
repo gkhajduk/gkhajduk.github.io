@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Course: Spatial Analysis in R</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="Course: Spatial Analysis in R" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/2015-03-22-course-spatial-analysis-in-r//" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.markdowntutorial.com/">Learn markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="https://pages.github.com/">GitHub Pages</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Course: Spatial Analysis in R</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 22, 2015</span><br>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+             Course title: Spatial Analysis of Ecological Data in R, organised by PR~statistics.<br /><br />The course was really extensive. Each day we did at least one new "module". Have a look at their website for the list: <a href="http://prstatistics.co.uk/courses/spatial-analysis-in-R/index.html" target="_blank">Spatial analysis course.</a><br /><br />It was one of the hardest courses, if not <i>the</i> hardest one, I have ever done. By Wednesday afternoon I was nearly in tears. Frustration with R was taking over - the course material was really tough and pretty much all new to me and on top of that we had to write our R scripts from scratch. Which for me was as close to impossible as one can get. While I understood the concepts I really struggled to apply the knowledge effectively and work through assigned tasks, as my coding knowledge was letting me down. <br /><br />I have to admit, during the course I wasn't sure how much use it all would be, since I felt like I wasn't getting through enough of the practicals. However (and this is a big however!) during the last day we split into smaller groups and discussed our own data. I managed to get some feedback on my ideas and some tips about future analyses. It was really, really, <i>really</i> useful! In the end we were also given copies of all the code necessary to complete all the practical tasks. I really think that I should be able to go over things again in my own time and use everything I learned.<br /><br />This course ate more than half my yearly PhD-expenses budget, but I think it was worth it in the end and I would recommend it if you are interested in spatial analysis. Things would probably be easier if you know a bit of R (even better if you know <i>a lot of R</i>). If you don't know R, but you want to do it, be prepared for some really hard work and likely a bit of confusion and frustration too.<br /><br />There is something more this course reminded me of, which I think is really important: <b>if you struggle, talk to other people!</b> I can't stress this enough. So many others on the course struggled and knowing that made me feel less alone and less hopeless. 
+	    </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-02-12-scrivener-mendeley-latex-and-references/" data-toggle="tooltip" data-placement="top" title="Scrivener + Mendeley + LaTeX and references">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2015-03-29-scab-conference/" data-toggle="tooltip" data-placement="top" title="SCAB conference">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+	    
+        <div class="disqus-comments">
+	        
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:g.k.hajduk@sms.ed.ac.uk" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2016
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
