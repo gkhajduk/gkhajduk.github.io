@@ -98,6 +98,20 @@
 
 
 
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
 <a href="/about">About</a>
 
           </li>
@@ -331,13 +345,25 @@
 
 
 
+
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
       <article role="main" class="blog-post">
              <div>There is a comment under my <a href="http://amidstscience.blogspot.co.uk/2014/08/phd-tools.html" target="_blank">PhD Tools</a>&nbsp;blog post asking about the workflow and using a reference manager with Scrivener. As I said in the comments, as far as I’m aware there isn’t a good and easy solution to that, although some workarounds have been suggested (I’ll try to find them and post links).</div><div><br /></div><div>First, if you don’t know how LaTeX deals with references, it’s fairy simple. I store my references in Mendeley, assigning a unique&nbsp;cite-key to each paper. The library can be exported as .bib file, which will be automatically updated every time you add a new reference in Mendeley (it’s a one time setup, which is great). Imagine you have a paper written by Smith <i>et al.</i> in 2005. My cite-key for that reference would be Smith_etal2005. I tell LaTeX where it can find the .bib file (I give it the path to that file), so that it can access all the data.</div><div><br /></div><div>When&nbsp;I write in LaTeX and want to cite this particular paper I use the cite-key Smith_etal2005 and a bit of code that tells LaTeX that this is a reference - it would look like \citep{Smith_etal2005}. LaTeX then goes to the .bib library, pulls out the full reference and sticks it in the “References” section at the end of the document. In the body of the text itself the reference is output as it should be <i>i.e.</i> "some text about the thing (Smith <i>et al.</i>, 2005)”.</div><div><br /></div><div>The beauty of this is that if I were to remove the reference from the body of the text LaTeX will automatically remove it&nbsp;from the reference list at the end. It saves me worrying about having references in text, but not in the reference list and <i>vice versa.</i>&nbsp;I really like it and plan on keeping using LaTeX and Mendeley combo to format and output my documents, likely including the thesis.</div><div><br /></div><div>Now I am adding Scrivener to the mix. Scrivener will be used mainly for note-taking, early drafts, re-drafting, reverse outlining etc. Anything that doesn’t need to be formatted and look pretty&nbsp;will be done in Scrivener, saving me dealing with the majority of LaTeX syntax&nbsp;in everyday life&nbsp;and formatting once the text is ready to be seen by the outside world. Having said that I don’t want to wait with inputting all reference till the last minute, it’s just so much more efficient to deal with them as you go!</div><div><br /></div><div>There are two options here.</div><div><br /></div><div>(1)&nbsp;I can input references in the-LaTeX-way, as I go, just like I would have done if I were&nbsp;writing in LaTeX itself (<i>i.e.</i> use the \citep{Smith_etal2005} in Scrivener). Then, I can simply export (or&nbsp;even copy-and-paste) that document from Scrivener to LaTeX for outputting, compile it and <i>voila!</i>&nbsp;references are sorted.</div><div><br /></div><div>(2)&nbsp;Alternatively, I could set up Scrivener with Multimarkdown (which is&nbsp;a syntax that allows you to write in plain text and then convert to a more complex format e.g. HTML), write using MMD&nbsp;to keep it simple and avoid having to put LaTeX-like bits of code in (the \citep{} in this case). It is then possible to export from Scrivener to LaTeX through MMD; all MMD specific syntax will be changed to LaTeX specific syntax.</div><div><br /></div><div>I feel&nbsp;like after the initial set up the second option i.e. using MMD would be cleaner. But then again, I don’t really have issues with using LaTeX-style citation syntax, so that’s what I have stuck with for now, as I only needed to write fairly short pieces of text. For anything of a length greater than 5000-6000 words it might well be worth spending a couple of hours sorting MMD out and getting used to it*.</div><div><br /></div><div><br /></div><div>If you are interested in learning more about any of the above, check out the links below. If that’s not enough - google! There seems to be dozens of tutorials on those things out there already, hence my post is rather simple, no need to re-invent the wheel.&nbsp;</div><div><br /></div><span style="font-size: x-small;">BibDesk, Multimarkdow, Scrivener (those are way more detailed than this blog post too):<br /><a href="http://timbrandes.com/blog/2012/02/28/howto-write-your-thesis-in-latex-using-scrivener-2-multimarkdown-3-and-bibdesk/">http://timbrandes.com/blog/2012/02/28/howto-write-your-thesis-in-latex-using-scrivener-2-multimarkdown-3-and-bibdesk/</a><br /><a href="http://timbrandes.com/blog/2014/04/08/optimize-bibdesk-multimarkdown-and-scrivener-for-a-nice-scientific-bibliography-and-citation-workflow/">http://timbrandes.com/blog/2014/04/08/optimize-bibdesk-multimarkdown-and-scrivener-for-a-nice-scientific-bibliography-and-citation-workflow/</a></span><br /><span style="font-size: x-small;">More here:&nbsp;<a href="http://harrisonsweeney.com/posts/scrivener-multimarkdown-and-latex.html">http://harrisonsweeney.com/posts/scrivener-multimarkdown-and-latex.html</a></span><br /><span style="font-size: x-small;"><br /></span><span style="font-size: x-small;">Some good posts on <i>having words</i> too:&nbsp;<a href="https://onhavingwords.wordpress.com/2013/03/19/scrivener-multimarkdown-latex/">https://onhavingwords.wordpress.com/2013/03/19/scrivener-multimarkdown-latex/</a></span><br /><span style="font-size: x-small;">Using LaTeX code in Scrivener:&nbsp;<a href="https://onhavingwords.wordpress.com/2013/07/27/any-latex-scrivener/">https://onhavingwords.wordpress.com/2013/07/27/any-latex-scrivener/</a></span><br /><span style="font-size: x-small;">Also replacements, if you are really into it all now!&nbsp;<a href="https://onhavingwords.wordpress.com/2013/10/06/replacements-latex-scrivener/">https://onhavingwords.wordpress.com/2013/10/06/replacements-latex-scrivener/</a><br /><br />On Multimarkdown, from its creator:&nbsp;<a href="http://fletcher.github.io/peg-multimarkdown/mmd-manual.pdf">http://fletcher.github.io/peg-multimarkdown/mmd-manual.pdf</a></span><br /><div><br /></div><div><span style="font-size: x-small;"><br /></span></div><br /><div>*but it’s not just because of the references, it’s because&nbsp;of the heading, subheading&nbsp;and other bits and pieces.&nbsp;</div>
 	    </article>
 
+<div>
+Tags: 
+ 
+  
+   <a href="/tags#tools-workflow-ref"> • Tools & workflow</a>
+  
+
+    
+<div class="blog-tags"></div>
+                  
       <ul class="pager blog-pager">
         
         <li class="previous">
@@ -391,7 +417,7 @@
           
 		  
           <li>
-            <a href="mailto:g.k.hajduk@sms.ed.ac.uk" title="Email me">
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
@@ -400,6 +426,15 @@
           </li>
           
 		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
 		  
 		  		  
         </ul>
