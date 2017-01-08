@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Looking back at 2016: Personal Edition</title>
+        <description>
+          
+          I’m glad I did this: looking back I actually managed to do a very decent amount of stuff. During the year quite a few times it felt like I was just failing miserably at all of it: falling asleep trying to read, spending more time waiting for the paint to...
+        </description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
+        <link>http://gkhajduk.github.io/2017-01-03-looking-back-personal/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2017-01-03-looking-back-personal/</guid>
+      </item>
+    
+      <item>
         <title>Fieldwork Tips: Packing List</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Thu, 05 Nov 2015 18:40:00 +0000</pubDate>
         <link>http://gkhajduk.github.io/2015-11-05-in-between-fieldwork-australian-king/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2015-11-05-in-between-fieldwork-australian-king/</guid>
-      </item>
-    
-      <item>
-        <title>In-between fieldwork: Black-fronted dotterel</title>
-        <description>
-          
-          Black-fronted dotterels (Elseyornis melanops) are not very common around Canberra and I only managed to see a pair during my visit.They were very easy too spook and didn&#39;t allow me to approach at all, every time I tried to take a step in their direction they would strut off hurriedly....
-        </description>
-        <pubDate>Fri, 30 Oct 2015 18:06:00 +0000</pubDate>
-        <link>http://gkhajduk.github.io/2015-10-30-in-between-fieldwork-black-fronted/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2015-10-30-in-between-fieldwork-black-fronted/</guid>
       </item>
     
   </channel>
