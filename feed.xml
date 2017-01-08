@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Looking back at 2016: Work Edition</title>
+        <description>
+          
+          Turns out that it’s actually harder to quantify my work achievements than it is to reflect on the personal side of things. In and around the office Out of the office Oddball items Low Points In and around the office I did a bunch of analysis, which hopefully should allow...
+        </description>
+        <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+        <link>http://gkhajduk.github.io/2017-01-07-looking-back-work/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2017-01-07-looking-back-work/</guid>
+      </item>
+    
+      <item>
         <title>Looking back at 2016: Personal Edition</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Sat, 07 Nov 2015 09:00:00 +0000</pubDate>
         <link>http://gkhajduk.github.io/2015-11-07-update-in-between-fieldwork-every-other/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2015-11-07-update-in-between-fieldwork-every-other/</guid>
-      </item>
-    
-      <item>
-        <title>In-between fieldwork: Australian king parrot</title>
-        <description>
-          
-          Those guys were easiest to spot in the late afternoon. There were some trees on my way home where they seemed to forage a lot. Their roost must have been somewhere else, as I never saw them stay there for the night and they were never there during my morning...
-        </description>
-        <pubDate>Thu, 05 Nov 2015 18:40:00 +0000</pubDate>
-        <link>http://gkhajduk.github.io/2015-11-05-in-between-fieldwork-australian-king/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2015-11-05-in-between-fieldwork-australian-king/</guid>
       </item>
     
   </channel>
