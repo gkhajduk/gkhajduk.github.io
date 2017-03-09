@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>An introduction to mixed models</title>
+  <title>Introduction to mixed models</title>
 
   <meta name="author" content="Gabriela K Hajduk" />
   
@@ -43,11 +43,11 @@
   
 
   <!-- Facebook OpenGraph tags -->
-  <meta property="og:title" content="An introduction to mixed models" />
+  <meta property="og:title" content="Introduction to mixed models" />
   <meta property="og:type" content="website" />
   
   
-  <meta property="og:url" content="http://gkhajduk.github.io/2015-03-08-mixed-models//" />
+  <meta property="og:url" content="http://gkhajduk.github.io/2017-03-09-mixed-models//" />
   
   
   
@@ -341,11 +341,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>An introduction to mixed models</h1>
+          <h1>Introduction to mixed models</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on March 8, 2015</span><br>
+		  <span class="post-meta">Posted on March 9, 2017</span><br>
 		  
         </div>
       </div>
@@ -363,7 +363,13 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       <article role="main" class="blog-post">
-             <p><strong>Acknowledgements:</strong> First of all, thanks where thanks are due. This tutorial has been built on the tutorial written by Liam Bailey, who has been kind enough to let me use chunks of his script as well as some of the data. Having this backbone of code made my life much, much easier, so thanks Liam, you are a star! The seemingly excessive waffling is mine.</p>
+             <p>This is a workshop I was asked to write and teach for the <a href="https://ourcodingclub.github.io">Coding Club</a>. It is aimed at people new to mixed modeling and as such it doesn’t cover all the nuances of mixed models, but hopefully serves as a starting point when it comes both to the concepts and the code syntax in <code class="highlighter-rouge">R</code>. There are no equations used to keep it beginner friendly.</p>
+
+<p><strong>Acknowledgements:</strong> First of all, thanks where thanks are due. This tutorial has been built on the tutorial written by Liam Bailey, who has been kind enough to let me use chunks of his script as well as some of the data. Having this backbone of code made my life much, much easier, so thanks Liam, you are a star! The seemingly excessive waffling is mine.</p>
+
+<p>If you are familiar with linear models, aware of their shortcomings and happy with their fitting then you should be able to very quickly get through the first five of the sections below. I am however including them for the sake of completeness and in an attempt to cater to a broader audience.</p>
+
+<p>Similarly, I include quite a bit of explanatory text: you might choose to just skim it for now and go through the “coding bits” of the tutorial. But it will be here to help you along when you start using mixed models with your own data and you need a bit more context.</p>
 
 <p><strong>Tutorial Aims:</strong></p>
 
@@ -383,9 +389,15 @@
         </ul>
       </li>
       <li><a href="#our-second-mixed-model" id="markdown-toc-our-second-mixed-model">Our second mixed model</a></li>
-      <li><a href="#p-values-and-model-selection" id="markdown-toc-p-values-and-model-selection">P-values and model selection</a></li>
+      <li><a href="#p-values-and-model-selection" id="markdown-toc-p-values-and-model-selection">P-values and model selection</a>        <ul>
+          <li><a href="#fixed-effects-structure" id="markdown-toc-fixed-effects-structure">Fixed effects structure</a></li>
+          <li><a href="#random-effects-structure" id="markdown-toc-random-effects-structure">Random effects structure</a></li>
+          <li><a href="#the-entire-model-selection" id="markdown-toc-the-entire-model-selection">The entire model selection</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
+  <li><a href="#the-end" id="markdown-toc-the-end">THE END</a></li>
 </ul>
 
 <h3 id="what-is-mixed-effects-modelling-and-why-does-it-matter">What is mixed effects modelling and why does it matter?</h3>
@@ -402,6 +414,7 @@
 <span class="n">head</span><span class="p">(</span><span class="n">dragons</span><span class="p">)</span>
 </code></pre>
 </div>
+
 <p>Let’s say we want to know how the body length of the dragons affects their test scores.</p>
 
 <p>Have a look at the distribution:</p>
@@ -409,12 +422,14 @@
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">hist</span><span class="p">(</span><span class="n">dragons</span><span class="o">$</span><span class="n">testScore</span><span class="p">)</span>  <span class="c1"># seems close to normal distribution - good!
 </span></code></pre>
 </div>
+<center><img src="/img/mm-1.png" width="600" /></center>
 
-<p>It is good practice to standardise your explanatory variables before proceeding - you can use <code class="highlighter-rouge">scale()</code> to do that:</p>
+<p>It is good practice to <strong>standardise</strong> your explanatory variables before proceeding, so that they have a mean of zero and standard deviation of one. It ensures that the estimated coefficients are all on the same scale, making it easier to compare effect sizes (and it improves model convergence). You can use <code class="highlighter-rouge">scale()</code> to do that:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dragons</span><span class="o">$</span><span class="n">bodyLength2</span> <span class="o">&lt;-</span> <span class="n">scale</span><span class="p">(</span><span class="n">dragons</span><span class="o">$</span><span class="n">bodyLength</span><span class="p">)</span>
 </code></pre>
 </div>
+<p><code class="highlighter-rouge">scale()</code> centers the data (the column mean is subtracted from the values in the column) and then scales it (the centered column values are divided by the column’s standard deviation).</p>
 
 <p>Back to our question: is the test score affected by body length?</p>
 
@@ -443,6 +458,8 @@
 </code></pre>
 </div>
 
+<center><img src="/img/mm-2.png" width="600" /></center>
+
 <p>Ok, so both from the linear model and from the plot it seems like bigger dragons do better in our intelligence test. That seems a bit odd, size shouldn’t really affect the test scores.</p>
 
 <p>But… Are the assumptions met?</p>
@@ -453,11 +470,14 @@
 </span></code></pre>
 </div>
 
+<center><img src="/img/mm-3.png" width="600" /></center>
+
 <p>Have a quick look at the qqplot too - points should ideally fall onto the diagonal dashed line</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">basic.lm</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>  <span class="c1"># a bit off at the extremes, but that's often the case; again doesn't look too bad
 </span></code></pre>
 </div>
+<center><img src="/img/mm-4.png" width="600" /></center>
 
 <p>However, what about observation independence? Are our data independent?</p>
 
@@ -468,6 +488,8 @@
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">boxplot</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">mountainRange</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span>  <span class="c1"># certainly looks like something is going on here
 </span></code></pre>
 </div>
+<center><img src="/img/mm-5.png" width="600" /></center>
+
 <p>We could also plot it colouring points by mountain range:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">dragons</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">bodyLength</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">testScore</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">mountainRange</span><span class="p">))</span> <span class="o">+</span>
@@ -476,6 +498,7 @@
     <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span>
 </code></pre>
 </div>
+<center><img src="/img/mm-6.png" width="600" /></center>
 
 <p>From the above plots it looks like our mountain ranges vary both in the dragon body length and in their test scores. This confirms that our observations from within each of the ranges <strong>aren’t independent</strong>. We can’t ignore that.</p>
 
@@ -490,6 +513,7 @@
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">bodyLength</span><span class="p">,</span> <span class="n">testScore</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">"length"</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">"test score"</span><span class="p">)</span>
 </code></pre>
 </div>
+<center><img src="/img/mm-7.png" width="600" /></center>
 
 <p>That’s eight analyses. Oh wait, we also have different sites, which similarly to mountain ranges aren’t independent… So we could run an analysis for each site in each range separately.</p>
 
@@ -518,17 +542,33 @@
 
 <h4 id="fixed-and-random-effects">Fixed and Random effects</h4>
 
-<p>Let’s talk a little about the <strong>fixed and random effects</strong> first - the literature isn’t clear on the exact definitions of those. In some cases the same variable could be considered either a random or a fixed effect (and sometimes even both at the same time!), so you have to think not only about your data, but also <strong>about the questions you are asking</strong> and construct your models accordingly.</p>
+<p>Let’s talk a little about the <strong>fixed and random effects</strong> first - the literature isn’t clear on the exact definitions of those, so I’m going to give you . In some cases the same variable could be considered either a random or a fixed effect (and sometimes even both at the same time!), so you have to think not only about your data, but also <strong>about the questions you are asking</strong> and construct your models accordingly.</p>
 
 <p>In broad terms, with <strong>fixed effects</strong> we are interested in evaluating the levels of our variable and using data from all its levels. In our case here, we are interested in making conclusions about how dragon body length impacts the dragon’s test score. So body length is a fixed effect.</p>
 
-<p>On the other hand, <strong>random effects</strong> (or random factors - as they will be categorical) are usually <strong>grouping factors</strong> for which we are trying to control. We are not specifically interested in their impact on the response variable. Additionally, the data for our random effect is just a <strong><em>random</em> sample of all the possibilities</strong>.</p>
+<p>On the other hand, <strong>random effects</strong> (or random factors - as they will be <strong>categorical</strong>, you can’t force R to treat a continuous variable as a random effect) are usually <strong>grouping factors</strong> for which we are trying to control. We are not specifically interested in their impact on the response variable. Additionally, the data for our random effect is just a <strong><em>random</em> sample of all the possibilities</strong>.</p>
 
 <p>In this particular case, we are looking to control for the effects of the mountain range. We haven’t sampled all the mountain ranges in the world (we have eight), so our data are just a random sample of all the existing mountain ranges. We are not really interested in the effect of each specific mountain range on the test score - but we know that the test scores from within the ranges might be correlated, so we want to control for that.</p>
 
-<p>If we specifically chose eight particular mountain ranges a priori and we were interested in those ranges and wanted to make predictions about them then mountain range would be fitted as a fixed effect. <strong>So the big question is:</strong> <em>what are you trying to do? What are you trying to make predictions about? What is just variation (a.k.a “noise”) that you need to control for?</em></p>
+<p>If we specifically chose eight particular mountain ranges a priori and we were interested in those ranges and wanted to make predictions about them then mountain range would be fitted as a fixed effect.</p>
+
+<p><strong>NOTE:</strong> Generally you want your random effect to have <strong>more than five levels</strong>. So, for instance, if we wanted to control for the effects of dragon’s sex on intelligence, we would fit sex (a two level factor: male or female) <strong>as a fixed, not random, effect</strong>.</p>
+
+<p><strong>So the big question is:</strong> <em>what are you trying to do? What are you trying to make predictions about? What is just variation (a.k.a “noise”) that you need to control for?</em></p>
+
+<p>Further reading for the keen:</p>
+
+<ul>
+  <li><a href="https://dynamicecology.wordpress.com/2015/11/04/is-it-a-fixed-or-random-effect/" target="_blank">Is it a fixed or random effect?</a></li>
+  <li><a href="https://dynamicecology.wordpress.com/2015/02/05/how-many-terms-in-your-model-before-statistical-machismo/" target="_blank">How many terms? On model complexity</a></li>
+  <li><a href="https://dynamicecology.wordpress.com/2014/12/02/why-are-your-statistical-models-more-complex-these-days/" target="_blank">More on model complexity</a></li>
+</ul>
 
 <h4 id="lets-fit-our-first-mixed-model">Let’s fit our first mixed model</h4>
+
+<p>Alright! Still with me? We have a response variable, the test score, and we are attempting to <strong>explain part of the variatio</strong>n in score through fitting body length as a fixed effect. But the response variable has some <strong>residual variation</strong> (<em>i.e.</em> unexplained variation) associated with mountain ranges. By using random effects we are modeling that unexplained variation through <strong>variance</strong>.</p>
+
+<p>[Sidenote: If you are confused between variation and variance: <strong>variation</strong> is a generic word, similar to dispersion or variability; <strong>variance</strong> is a particular measure of variation, it quantifies the dispersion if you wish]</p>
 
 <p>We will fit the random effect using <code class="highlighter-rouge">(1|variableName)</code>:</p>
 
@@ -544,12 +584,15 @@
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">mixed.lmer</span><span class="p">)</span>  <span class="c1"># looks alright, no paterns evident
 </span></code></pre>
 </div>
+<center><img src="/img/mm-8.png" width="600" /></center>
+
 <p>and “<code class="highlighter-rouge">qqplot</code>”:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">qqnorm</span><span class="p">(</span><span class="n">resid</span><span class="p">(</span><span class="n">mixed.lmer</span><span class="p">))</span>
 <span class="n">qqline</span><span class="p">(</span><span class="n">resid</span><span class="p">(</span><span class="n">mixed.lmer</span><span class="p">))</span>  <span class="c1"># points fall nicely onto the line - good!
 </span></code></pre>
 </div>
+<center><img src="/img/mm-9.png" width="600" /></center>
 
 <p>Let’s go back to the summary and look at our results again.</p>
 
@@ -608,15 +651,15 @@
 
 <h4 id="our-second-mixed-model">Our second mixed model</h4>
 
-<p>Based on the above, using following specification would be wrong:</p>
+<p>Based on the above, using following specification would be <strong><u>wrong</u></strong>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mixed.WRONG</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">site</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span>  <span class="c1"># treats the two random effects as if they are crossed
 </span></code></pre>
 </div>
 <p>But we can go ahead and fit a new model, one that takes into account both the differences between the mountain ranges as well as the differences between the sites within those mountain ranges, by using our <code class="highlighter-rouge">sample</code> variable:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mixed.lmer2</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">(</span><span class="n">mixed.lmer.2</span><span class="p">)</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mixed.lmer2</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span>  <span class="c1"># the syntax stays the same, but now the nesting is taken into account
+</span><span class="n">summary</span><span class="p">(</span><span class="n">mixed.lmer.2</span><span class="p">)</span>
 </code></pre>
 </div>
 
@@ -635,12 +678,17 @@
   <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span>
 </code></pre>
 </div>
+<center><img src="/img/mm-10.png" width="600" /></center>
 
 <h4 id="p-values-and-model-selection">P-values and model selection</h4>
 
 <p>Please be <strong>very, very careful</strong> when it comes to model selection. Focus on your <strong>question</strong>, don’t just plug into and drop variables from a model haphazardly till you make something “significant”. I choose variables based on biology/ecology, I might use the model selection to check a couple of non-focal parameters, but I keep the “core” of the model untouched in most cases. <strong>Define your goals and questions and focus on that.</strong> Also, don’t just put all possible variables in (i.e. don’t <strong>overfit</strong>) - remember that as a rule of thumb <strong>you need 10 times more data than parameters</strong> you are trying to estimate.</p>
 
-<p><code class="highlighter-rouge">lme4</code> doesn’t spit out p-values by default - this is a conscious choice made by the authors of the package, as there are many problems with p-values (I’m sure you are aware of the debates!)</p>
+<p>For more info on overfitting check out this <a href="https://ourcodingclub.github.io/2017/02/28/modelling.html" target="_blank">tutorial</a>.</p>
+
+<h5 id="fixed-effects-structure">Fixed effects structure</h5>
+
+<p>Most of you are probably going to be predominantly interested in your fixed effects, so let’s start here. <code class="highlighter-rouge">lme4</code> doesn’t spit out p-values for the parameters by default - this is a conscious choice made by the authors of the package, as there are many problems with p-values (I’m sure you are aware of the debates!)</p>
 
 <p>You will inevitably look for a way to assess your model though, so here are a few solutions on how to go about hypothesis testing in linear mixed models (LMMs):</p>
 
@@ -653,9 +701,11 @@
   <li><code class="highlighter-rouge">MCMC</code> or parametric bootstrap confidence intervals</li>
 </ul>
 
-<p>I think that <code class="highlighter-rouge">MCMC</code> and bootstrapping are a bit out of our reach for this workshop, so let’s have a quick go at <strong>likelihood ratio tests</strong> using <code class="highlighter-rouge">anova()</code>. With large sample sizes p-values based on the likelihood ratio are generally considered ok. <strong>NOTE:</strong> With small sample sizes you might want to look into deriving p-values using the Kenward-Roger or Satterthwaite approximations (for REML models). Check out the <code class="highlighter-rouge">pbkrtest</code> package.</p>
+<p>(See <a href="http://stats.stackexchange.com/questions/95054/how-to-get-an-overall-p-value-and-effect-size-for-a-categorical-factor-in-a-mi" target="_blank">this link</a> for more information and further reading)</p>
 
-<p>Fit the models,  a full model and a reduced model in which we dropped our fixed effect:</p>
+<p>I think that <code class="highlighter-rouge">MCMC</code> and bootstrapping are a bit out of our reach for this workshop, so let’s have a quick go at <strong>likelihood ratio tests</strong> using <code class="highlighter-rouge">anova()</code>. With large sample sizes p-values based on the likelihood ratio are generally considered ok. <strong>NOTE:</strong> With small sample sizes you might want to look into deriving p-values using the Kenward-Roger or Satterthwaite approximations (for <code class="highlighter-rouge">REML</code> models). Check out the <code class="highlighter-rouge">pbkrtest</code> package.</p>
+
+<p>Fit the models,  a full model and a reduced model in which we dropped our fixed effect (<code class="highlighter-rouge">bodyLength2</code>):</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">full.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
 <span class="n">reduced.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="m">1</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
@@ -680,6 +730,38 @@
 
 <p><strong>NOTE 3:</strong> There isn’t really an agreed upon way of dealing with the variance from the random effects in mixed models when it comes to assessing significance. So both, <strong>p-values</strong> and <strong>effect sizes</strong> have issues, although from what I gather p-values seem to cause more disagreement than effect sizes, at least in the R community.</p>
 
+<h5 id="random-effects-structure">Random effects structure</h5>
+
+<p>Now you might wonder about selecting your random effects. In general, I’d advise you to think about your <strong>experimental design, your system and data collected as well as your questions</strong>.</p>
+
+<p>If your random effects are there to deal with <strong>pseudoreplication</strong> then it doesn’t really matter whether they are “significant” or not - they <strong>are part of your design</strong> and have to be included. Imagine we tested our dragons multiple times - we then <em>have to</em> fit dragon identity as a random effect.</p>
+
+<p>On the other hand if you are trying to account for other variability that you think might be important it becomes a bit harder. Imagine we measured the mass of our dragons over their lifespans (let’s say 100 years). We might then want to fit year as a random effect to account for any temporal variation - maybe some years were affected by drought, the resources were scarce and so dragon mass was negatively impacted. Year would definitely be a sensible random effect, although strictly speaking not a must.</p>
+
+<p>When it comes to such random effects you can use <strong>model selection</strong> to help you decide what to keep in. Following Zuur’s advice we <strong>use <code class="highlighter-rouge">REML</code> estimators for comparison of models with different random effects</strong> (we keep fixed effects constant). (Zuur: “Two models with nested random structures cannot be done with ML because the estimators for the variance terms are biased.” )</p>
+
+<p><strong>NOTE:</strong> Do <strong>NOT</strong> vary random and fixed effects at the same time - either deal with your random effects structure or with your fixed effects structure at any given point.</p>
+
+<p><strong>NOTE 2:</strong> Do <strong>NOT</strong> compare <code class="highlighter-rouge">lmer</code> models with <code class="highlighter-rouge">lm</code> models (or <code class="highlighter-rouge">glmer</code> with <code class="highlighter-rouge">glm</code>).</p>
+
+<h5 id="the-entire-model-selection">The entire model selection</h5>
+
+<p>A few notes on the process of model selection. There are two ways here: (i) <strong>“top-down”</strong>, where you start with a complex model and gradually reduce it, and (ii) <strong>“step up”</strong>, where you start with a simple model and add new variables to it. Unfortunately, you might arrive at different final models by using those strategies and so you need to be careful.</p>
+
+<p>The model selection process recommended by Zuur is a top-down strategy and goes a follows:</p>
+
+<ol>
+  <li>fit a <strong>full model</strong> (he even recommends “beyond optimal” i.e. more complex than you’d expect or want it to be)</li>
+  <li>sort out the <strong>random effects structure</strong> (use <code class="highlighter-rouge">REML</code> likelihoods or <code class="highlighter-rouge">REML</code> AIC or BIC)</li>
+  <li>sort out <strong>fixed effects structure</strong> (either use <code class="highlighter-rouge">REML</code> the F-statistic or the t-statistic or compare nested <code class="highlighter-rouge">ML</code> models - keep your random effects constant)</li>
+  <li>once you arrive at the <strong>final model present it using <code class="highlighter-rouge">REML</code> estimation</strong></li>
+</ol>
+
+<h3 id="the-end">THE END</h3>
+
+<p><strong>Well done for getting through this!</strong> As you probably gather mixed effects models can be a bit tricky and often there isn’t much consensus on the best way to tackle something within them. The coding bit is actually the (relatively) easy part here. Be mindful of what you are doing, prepare the data well and things should be alright.</p>
+
+<p>I hope that you found the tutorial useful - please let me know if you have any questions.</p>
 
 	    </article>
 
@@ -694,13 +776,9 @@ Tags:
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="/2015-02-12-scrivener-mendeley-latex-and-references/" data-toggle="tooltip" data-placement="top" title="Scrivener + Mendeley + LaTeX and references">&larr; Previous Post</a>
+          <a href="/2017-02-11-fieldwork-tips-go-paperless/" data-toggle="tooltip" data-placement="top" title="Fieldwork Tips: Go paperless! Or not">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="next">
-          <a href="/2015-03-22-course-spatial-analysis-in-r/" data-toggle="tooltip" data-placement="top" title="Course: Spatial Analysis in R">Next Post &rarr;</a>
-        </li>
         
       </ul>
       

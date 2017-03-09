@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Introduction to mixed models</title>
+        <description>
+          
+          This is a workshop I was asked to write and teach for the Coding Club. It is aimed at people new to mixed modeling and as such it doesn’t cover all the nuances of mixed models, but hopefully serves as a starting point when it comes both to the concepts...
+        </description>
+        <pubDate>Thu, 09 Mar 2017 08:00:00 +0000</pubDate>
+        <link>http://gkhajduk.github.io/2017-03-09-mixed-models/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2017-03-09-mixed-models/</guid>
+      </item>
+    
+      <item>
         <title>Fieldwork Tips: Go paperless! Or not</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Thu, 21 Jan 2016 19:53:00 +0000</pubDate>
         <link>http://gkhajduk.github.io/2016-01-21-in-between-fieldwork-new-holland/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2016-01-21-in-between-fieldwork-new-holland/</guid>
-      </item>
-    
-      <item>
-        <title>In-between fieldwork: Red-browed finch</title>
-        <description>
-          
-          Red-browed finch (Neochmia temporalis) is the most common finch around Canberra. I&#39;d often see pairs of them in bushes during the day.Early in the morning I would come across little groups foraging on the ground, between the grass too.When the spring kicked-in I saw some nest-building too. It looks very...
-        </description>
-        <pubDate>Thu, 07 Jan 2016 19:41:00 +0000</pubDate>
-        <link>http://gkhajduk.github.io/2016-01-07-in-between-fieldwork-red-browed-finch/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2016-01-07-in-between-fieldwork-red-browed-finch/</guid>
       </item>
     
   </channel>
