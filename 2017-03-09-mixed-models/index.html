@@ -391,6 +391,7 @@
         </ul>
       </li>
       <li><a href="#our-second-mixed-model" id="markdown-toc-our-second-mixed-model">Our second mixed model</a></li>
+      <li><a href="#presenting-your-model-results" id="markdown-toc-presenting-your-model-results">Presenting your model results</a></li>
       <li><a href="#p-values-and-model-selection" id="markdown-toc-p-values-and-model-selection">P-values and model selection</a>        <ul>
           <li><a href="#fixed-effects-structure" id="markdown-toc-fixed-effects-structure">Fixed effects structure</a></li>
           <li><a href="#random-effects-structure" id="markdown-toc-random-effects-structure">Random effects structure</a></li>
@@ -510,9 +511,10 @@
 
 <p>We could run many separate analyses and fit a regression for each of the mountain ranges.</p>
 
-<p>Lets have a quick look at the data split by mountain range.  We use the facet_wrap to do that:</p>
+<p>Lets have a quick look at the data split by mountain range.  We use the <code class="highlighter-rouge">facet_wrap</code> to do that:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">bodyLength</span><span class="p">,</span> <span class="n">testScore</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">"length"</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">"test score"</span><span class="p">)</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">bodyLength</span><span class="p">,</span> <span class="n">testScore</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> 
+<span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlab</span><span class="p">(</span><span class="s2">"length"</span><span class="p">)</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">"test score"</span><span class="p">)</span>
 </code></pre>
 </div>
 <center><img src="/img/mm-7.png" width="600" /></center>
@@ -534,7 +536,7 @@
 </code></pre>
 </div>
 
-<p>Now body length is not significant. But let’s think about what we are doing here for a second. The above model is estimating the difference in test scores between the mountain ranges - we can see all of them in the model output returned by <code class="highlighter-rouge">summary()</code>. But we are not interested in that, we just want to know whether body length affects test scores and we want to simply <strong>control for the variation</strong> coming from mountain ranges.</p>
+<p>Now body length is <u>not</u> significant. But let’s think about what we are doing here for a second. The above model is estimating the difference in test scores between the mountain ranges - we can see all of them in the model output returned by <code class="highlighter-rouge">summary()</code>. But we are not interested in that, we just want to know whether body length affects test scores and we want to simply <strong>control for the variation</strong> coming from mountain ranges.</p>
 
 <p>This is what we refer to as <strong>“random factors”</strong> and so we arrive at mixed effects models. Ta-daa!</p>
 
@@ -661,7 +663,7 @@
 <p>But we can go ahead and fit a new model, one that takes into account both the differences between the mountain ranges as well as the differences between the sites within those mountain ranges, by using our <code class="highlighter-rouge">sample</code> variable:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mixed.lmer2</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">)</span>  <span class="c1"># the syntax stays the same, but now the nesting is taken into account
-</span><span class="n">summary</span><span class="p">(</span><span class="n">mixed.lmer.2</span><span class="p">)</span>
+</span><span class="n">summary</span><span class="p">(</span><span class="n">mixed.lmer2</span><span class="p">)</span>
 </code></pre>
 </div>
 
@@ -681,6 +683,28 @@
 </code></pre>
 </div>
 <center><img src="/img/mm-10.png" width="600" /></center>
+
+<h4 id="presenting-your-model-results">Presenting your model results</h4>
+
+<p>Once you get your model you have to <strong>present</strong> it in a nicer form. For <code class="highlighter-rouge">lme4</code> I’d recommend that you have a look at the <code class="highlighter-rouge">stargazer</code> package.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">stargazer</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">Stargazer</code>is very nicely annotated and there are lots of resources (e.g. <a href="https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf" target="_blank">this</a>) out there and a <a href="http://jakeruss.com/cheatsheets/stargazer.html" target="_blank">great cheat sheet</a>, so I won’t go into too much detail, as I’m confident you will find everything you need.</p>
+
+<p>Here is a quick example - simply plug in your model name, in this case <code class="highlighter-rouge">mixed.lmer2</code> into the <code class="highlighter-rouge">stargazer</code> function. I set <code class="highlighter-rouge">type</code> to <code class="highlighter-rouge">"text"</code> so that you can see the table in your console - I usually tweak the table like this till I’m happy with it and then export it using  <code class="highlighter-rouge">type = "latex"</code>, but <code class="highlighter-rouge">"html"</code> might be more useful for you if you are not a LaTeX user.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">stargazer</span><span class="p">(</span><span class="n">mixed.lmer2</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"text"</span><span class="p">,</span>
+          <span class="n">digits</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span>
+          <span class="n">star.cutoffs</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0.05</span><span class="p">,</span> <span class="m">0.01</span><span class="p">,</span> <span class="m">0.001</span><span class="p">),</span>
+          <span class="n">digit.separator</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span>
+</code></pre>
+</div>
+<center><img src="/img/mm-tab.png" width="400" /></center>
+
+<p>If you’d like to be able <strong>to do more with your model results</strong>, for instance process them further, collate model results from multiple models or plot them have a look at the <code class="highlighter-rouge">broom</code> package: this <a href="http://varianceexplained.org/r/broom-intro/" target="_blank">tutorial</a> is a great start.</p>
 
 <h4 id="p-values-and-model-selection">P-values and model selection</h4>
 
@@ -709,8 +733,10 @@
 
 <p>Fit the models,  a full model and a reduced model in which we dropped our fixed effect (<code class="highlighter-rouge">bodyLength2</code>):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">full.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
-<span class="n">reduced.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="m">1</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">full.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="n">bodyLength2</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> 
+				  <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="n">reduced.lmer</span> <span class="o">&lt;-</span> <span class="n">lmer</span><span class="p">(</span><span class="n">testScore</span> <span class="o">~</span> <span class="m">1</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">mountainRange</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="m">1</span><span class="o">|</span><span class="n">sample</span><span class="p">),</span> 
+					     <span class="n">data</span> <span class="o">=</span> <span class="n">dragons</span><span class="p">,</span> <span class="n">REML</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
 </code></pre>
 </div>
 
