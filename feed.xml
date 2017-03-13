@@ -7,7 +7,7 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Introduction to mixed models</title>
+        <title>Introduction to linear mixed models</title>
         <description>
           
           This is a workshop I was asked to write and teach for the Coding Club. It is aimed at people new to mixed modeling and as such it doesn’t cover all the nuances of mixed models, but hopefully serves as a starting point when it comes both to the concepts...
