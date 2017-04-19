@@ -1,1 +1,0 @@
-title: Version Control - Git - Resources
