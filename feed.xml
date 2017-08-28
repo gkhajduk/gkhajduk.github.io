@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>ESEB 2017</title>
+        <description>
+          
+          What a week! I’m exhausted - conferences can be so draining! It’s an incredibly intense experience when you try to make the most of it and I tried my best: I prepped for my talk, I then attended back-to-back talks in nearly all slots, and during each break and meals...
+        </description>
+        <pubDate>Sat, 26 Aug 2017 00:00:00 +0100</pubDate>
+        <link>http://gkhajduk.github.io/2017-08-26-eseb/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2017-08-26-eseb/</guid>
+      </item>
+    
+      <item>
         <title>Fieldwork: Season 2</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Sat, 06 Aug 2016 00:00:00 +0100</pubDate>
         <link>http://gkhajduk.github.io/2016-08-06-migration-and-new-website/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2016-08-06-migration-and-new-website/</guid>
-      </item>
-    
-      <item>
-        <title>Getting PhDing back on track!</title>
-        <description>
-          
-          I&#39;m planning on posting some fairly regular work updates. I will paint you a picture of what I&#39;ve been up to over the last few months.When I got back from fieldwork in November I had two options:(i) either write up my analyses from the first year as a manuscript and...
-        </description>
-        <pubDate>Tue, 01 Mar 2016 08:00:00 +0000</pubDate>
-        <link>http://gkhajduk.github.io/2016-03-01-getting-phding-back-on-track/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2016-03-01-getting-phding-back-on-track/</guid>
       </item>
     
   </channel>
