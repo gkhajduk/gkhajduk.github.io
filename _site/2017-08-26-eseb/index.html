@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>ESEB 2017</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="ESEB 2017" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/2017-08-26-eseb//" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/collaborators">Collaborators</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/R-resources">Analysis - R</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/latex-markdown-resources">LaTeX & Markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Writing - General</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/vc-git-resources">Version Control - Git</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/reproducible-resources">Reproducible Science</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Web Development</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/404">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>ESEB 2017</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 26, 2017</span><br>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+             <h3 id="what-a-week">What a week!</h3>
+
+<p>I’m <strong>exhausted</strong> - conferences can be so draining! It’s an incredibly intense experience when you try to make the most of it and I tried my best: I prepped for my talk, I then attended back-to-back talks in nearly all slots, and during each break and meals I was either catching up with people or networking. All in all, I needed to be focused and on top of my game 100% of the time - <strong>but it went well and was well worth it!</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#what-a-week" id="markdown-toc-what-a-week">What a week!</a></li>
+  <li><a href="#my-fairy-wren-talk" id="markdown-toc-my-fairy-wren-talk">My fairy-wren talk</a></li>
+  <li><a href="#community" id="markdown-toc-community">Community</a></li>
+  <li><a href="#talks" id="markdown-toc-talks">Talks</a></li>
+  <li><a href="#posters" id="markdown-toc-posters">Posters</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h3 id="my-fairy-wren-talk">My fairy-wren talk</h3>
+
+<p>My talk had a full audience who had quite a few great comments/questions too - a couple of kind souls even took and tweeted photos - see below. Plenty of people chased me down during the day and the poster session that evening, and a few more came for a chat in the following days too, which is absolutely fantastic.</p>
+
+<p><strong>Thank you to everyone who reached out!</strong></p>
+
+<p><img src="../img/eseb1.png" alt="" />
+<img src="../img/eseb2.png" alt="" /></p>
+
+<h3 id="community">Community</h3>
+
+<p>It’s always an amazing experience to be able to submerge oneself in research and catch up on what others in the field have been doing, to see the diversity of topics being explored and the progress made.</p>
+
+<p>It was also an opportunity to catch up with some friends - plenty of ex-Edinburgh, Sheffield and ANU folk whom I was very pleased to see. I’m finally at that stage where I know quite a few people at conferences, so there is an extra layer to it, a bit more of <strong>a sense of community, which I really like.</strong></p>
+
+<p>Other highlights of the week? Too many to list! But I will give you a taste of the research presented.</p>
+
+<h3 id="talks">Talks</h3>
+
+<p>Here are a few talks I went to and enjoyed, just to give you an idea of the diversity of topics covered.</p>
+
+<ul>
+  <li>
+    <p>My favourite keynote lecture was that given by <strong>Renee Duckworth</strong>, Associate Professor at the University of Arizona, who talked about “Individual variation, ecological dynamics and evolutionary feedbacks”. Some really really great work using large-scale field experiments, if you are not familiar with her research I recommend you have a look.</p>
+  </li>
+  <li>
+    <p>Other talks… I can’t really pick just one talk, there were many great ones, including a talk by my supervisor, <strong>Loeske Kruuk</strong> (talking about rapid evolution in wild populations) on Monday morning. I’ll instead list a few of the great ones I had the pleasure of listening to below.</p>
+  </li>
+  <li>
+    <p>On Tuesday, I have spent majority of my time in the Symposium on <em>environmental effects on sexual selection</em> (where my talk was too) and particularly enjoyed talks by <strong>Svensson</strong> (on importance of integrating sexual selection with other fields), <strong>Godwin</strong> (sexual selection and population fitness vs. environmental change), <strong>Stapley</strong> (reproductive isolation &amp; colour polymorphism in Anolis lizards) and <strong>Bichet</strong> (effects of climate on infidelity in Alpine marmots!).</p>
+  </li>
+  <li>
+    <p>Wednesday - we did a half-day of talks, with the open symposium providing some interesting choices, including <strong>Lehtonen</strong> (multilevel selection and kin selection), <strong>Corral-Lopez</strong> (brain size and mate attractiveness assessment) and <strong>Holen</strong> (brood parasitism defences). Then we did excursions in the afternoon - I went to the wetlands and learnt quite a bit about the way these are managed (but also heard some rather unpleasant <em>and</em> untrue comments about Polish people from our guide).</p>
+  </li>
+  <li>
+    <p>On Thursday we had a great talk by <strong>Kokko</strong> (a sex-specific guide to using spatially varying resources), <strong>Busana</strong> (multi-level determinants of fitness), <strong>Peters</strong> (links between rainfall and breeding in purple-crowned fairy-wrens) and <strong>Vitikainen</strong> (life-history variation in mongooses) to name a few. I was particularly glad to see <strong>Vitikainen’s</strong> talk - I’m not the only one with a weird study system!</p>
+  </li>
+  <li>
+    <p>We started Friday off with <strong>Jiggins</strong>’ plenary on speciation in <em>Heliconius</em> butterflies. Other speakers included <strong>Kolm</strong> (brain anatomy and schooling behaviour - some cool technology used), <strong>Slate</strong> (supergene controlling sperm morphology - some work linked to my previous lab) and <strong>Kuepper</strong> (genetics of reproductive tactics in ruffs).</p>
+  </li>
+</ul>
+
+<p>There were many more good talks - apologies I can’t mention them all here!</p>
+
+<h3 id="posters">Posters</h3>
+
+<p>We had three poster sessions and with ~800 posters it’d be incredibly hard to list a reasonable sample - unlike during talks I also haven’t taken any notes, so it’s hard to remember details and names (I’m so very bad with names).</p>
+
+<p>I was pleased to see that the vast majority of the posters were of high quality and the presenters <em>knew their stuff</em>, so it was a pleasure to chat to them. The wine system was implemented too - each presenter had a bottle of wine and members of the audience would go over, get a glass poured and talk about the poster. It worked very nicely. One person even tried to bride us with extra booze - sneaky!</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>All in all, an incredibly packed week, full of amazing research and great people. There were small issues, as there are bound to be with a conference this size (over 1400 people). Some of these (e.g. problems with rooms, not enough food at lunches) shouldn’t have really been an issue, particularly given that the conference was held at a dedicated venue that really <em>should know better</em>.</p>
+
+<p>Of course, at the end the great benefits of attending outweigh the small bumps, hunger and tiredness. But I wouldn’t say no to extra cake in the future! One needs to feed the brain to stay focused and be able to take in all the information.</p>
+
+	    </article>
+
+<div>
+Tags: 
+ 
+  
+   <a href="/tags#conferences-ref"> • Conferences</a>
+  
+
+    
+<div class="blog-tags"></div>
+                  
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2017-07-24-manuscript1/" data-toggle="tooltip" data-placement="top" title="First PhD manuscript submitted!">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+	    
+        <div class="disqus-comments">
+	        
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'amidstscience';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2017
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-93507620-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+
+
+
+
+  </body>
+</html>

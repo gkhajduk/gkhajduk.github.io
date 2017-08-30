@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>R Resources</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="R Resources" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/R-resources/" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/collaborators">Collaborators</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/R-resources">Analysis - R</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/latex-markdown-resources">LaTeX & Markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Writing - General</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/vc-git-resources">Version Control - Git</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/reproducible-resources">Reproducible Science</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Web Development</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/404">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>R Resources</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <p>This is a compilation of hopefully useful resources. It’s by no means complete. I take no responsibility for the accuracy of any of it - bits I have tried, others I have only read through and some I popped here as they looked interesting and I wanted to read them in the future. I will add to the list when time allows and as I comb through the depths of my hard drive.</p>
+
+<p>At the minute the only one that is mine is <a href="/2017-03-09-mixed-models/" target="_blank">“Introduction to mixed models”</a> in R tutorial. The rest were created by other awesome people.</p>
+
+<p><strong>Table of contents:</strong></p>
+
+<ul id="markdown-toc">
+  <li><a href="#general-resources" id="markdown-toc-general-resources">General resources</a></li>
+  <li><a href="#wish-i-knew-where-to-start" id="markdown-toc-wish-i-knew-where-to-start">Wish I knew where to start…</a></li>
+  <li><a href="#tutorial-series-podcasts-videos-courses-etc" id="markdown-toc-tutorial-series-podcasts-videos-courses-etc">Tutorial series, podcasts, videos, courses etc.</a></li>
+  <li><a href="#documentation--books" id="markdown-toc-documentation--books">Documentation &amp; books</a></li>
+  <li><a href="#cheat-sheets" id="markdown-toc-cheat-sheets">Cheat-sheets</a></li>
+  <li><a href="#data-clean-up-and-manipulation" id="markdown-toc-data-clean-up-and-manipulation">Data clean up and manipulation</a></li>
+  <li><a href="#data-visualisation" id="markdown-toc-data-visualisation">Data visualisation</a></li>
+  <li><a href="#spatial-data" id="markdown-toc-spatial-data">Spatial data</a></li>
+  <li><a href="#help" id="markdown-toc-help">Help</a></li>
+  <li><a href="#report-writing--reproducibility" id="markdown-toc-report-writing--reproducibility">Report writing &amp; reproducibility</a></li>
+  <li><a href="#other-resources" id="markdown-toc-other-resources">Other resources</a></li>
+</ul>
+
+<h3 id="general-resources">General resources</h3>
+
+<ul>
+  <li><a href="https://www.r-project.org/index.html" target="_blank">The R Project for Statistical Computing</a></li>
+  <li><a href="https://journal.r-project.org" target="_blank">The R Journal</a></li>
+  <li><a href="https://www.rstudio.com/products/rstudio/" target="_blank">RStudio - GUI</a></li>
+  <li><a href="https://nicercode.github.io" target="_blank">Nice R Code</a></li>
+  <li><a href="http://www.statmethods.net" target="_blank">Quick-R</a></li>
+  <li><a href="https://www.r-bloggers.com" target="_blank">R-bloggers</a></li>
+  <li><a href="http://adv-r.had.co.nz/memory.html" target="_blank">Advanced R by Hadley Wickham</a></li>
+</ul>
+
+<h3 id="wish-i-knew-where-to-start">Wish I knew where to start…</h3>
+
+<ul>
+  <li><a href="http://www.reganmian.net/blog/2014/10/14/starting-data-analysiswrangling-with-r-things-i-wish-id-been-told/" target="_blank">Starting data analysis/wrangling with R: Things I wish I’d been told</a></li>
+  <li><a href="http://arrgh.tim-smith.us" target="_blank">aRrgh: a newcomer’s (angry) guide to R</a></li>
+  <li><a href="http://tryr.codeschool.com" target="_blank">Intro to R</a></li>
+  <li><a href="https://ourcodingclub.github.io/tutorials/" target="_blank">Coding Club tutorials</a></li>
+</ul>
+
+<h3 id="tutorial-series-podcasts-videos-courses-etc">Tutorial series, podcasts, videos, courses etc.</h3>
+
+<ul>
+  <li><a href="http://www.tcd.ie/Zoology/research/research/theoretical/Rpodcasts.php" target="_blank">A course in the R statistical computing language by video podcast</a></li>
+  <li><a href="https://www.r-bloggers.com/learning-statistics-on-youtube/" target="_blank">Learning Statistics on Youtube</a></li>
+  <li><a href="http://blog.revolutionanalytics.com/2012/12/coursera-videos.html" target="_blank">Videos from Coursera’s four week course in R</a></li>
+  <li><a href="https://www.r-bloggers.com/moocs-and-courses-to-learn-r/" target="_blank">MOOCs and courses to learn R</a></li>
+</ul>
+
+<h3 id="documentation--books">Documentation &amp; books</h3>
+
+<ul>
+  <li><a href="https://cran.r-project.org/other-docs.html" target="_blank">Lengthy list with pdfs</a></li>
+</ul>
+
+<h3 id="cheat-sheets">Cheat-sheets</h3>
+
+<ul>
+  <li><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">R Reference Card by Tom Short</a></li>
+  <li><a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">RStudio cheatsheets</a></li>
+  <li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" target="_blank">Data wrangling cheatsheet</a></li>
+</ul>
+
+<h3 id="data-clean-up-and-manipulation">Data clean up and manipulation</h3>
+
+<ul>
+  <li><a href="http://r4ds.had.co.nz" target="_blank">R for Data Science - Grolemund &amp; Wickham</a>  and a <a href="https://peerj.com/preprints/2873/" target="_blank">review</a> of the book.</li>
+  <li><a href="http://tidyverse.org" target="_blank">tidyverse</a>  and particularly <a href="http://dplyr.tidyverse.org" target="_blank">dplyr</a> , <a href="http://tidyr.tidyverse.org" target="_blank">tidyr</a></li>
+  <li><a href="http://seananderson.ca/2014/09/13/dplyr-intro.html" target="_blank">dplyr and pipes: the basics</a></li>
+  <li><a href="http://www.juliapilowsky.com/datawrangling/" target="_blank">Guide to Data Wrangling in R - by Julia Pilowsky</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html" target="_blank">broom package</a> - great help when you need to turn your LM model outputs into tables</li>
+</ul>
+
+<h3 id="data-visualisation">Data visualisation</h3>
+
+<ul>
+  <li><a href="https://susanejohnston.wordpress.com/2013/08/30/base-graphics-in-r-a-detailed-idiots-guide/" target="_blank">Base Graphics in R: A Detailed Idiot’s Guide</a>  - by Dr Susan Johnston</li>
+  <li><a href="http://ggplot2.tidyverse.org" target="_blank">ggplot2</a> and <a href="http://ggplot2.org/book/" target="_blank">ggplot2 book</a></li>
+  <li><a href="http://shiny.rstudio.com/tutorial/" target="_blank">Shiny</a></li>
+  <li>Complex, interactive heatmaps in R: <a href="https://github.com/AliciaSchep/iheatmapr" target="_blank">iheatmapr</a></li>
+  <li>Working with <a href="http://www.naturalearthdata.com">Natural Earth</a> map data? <a href="https://github.com/ropenscilabs/rnaturalearth" target="_blank">rnaturalearth</a></li>
+  <li>Graph and network visualization using tabular data in R: <a href="https://github.com/rich-iannone/DiagrammeR?utm_content=buffer313f3&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank">DiagrammeR</a> - click through to have a look at the visuals!</li>
+  <li>Fancy adding images next to your ggplot objects? <a href="http://luisdva.github.io/rstats/ggpup/" target="_blank">ggpup</a></li>
+  <li><a href="http://motioninsocial.com/tufte/#introduction" target="_blank">Tufte in R</a></li>
+  <li><a href="http://ase.tufts.edu/bugs/guide/assets/R%20Graphics%20Cookbook.pdf" target="_blank">R Graphics Cookbook</a></li>
+</ul>
+
+<h3 id="spatial-data">Spatial data</h3>
+
+<ul>
+  <li>Dealing with spatial data? <a href="http://r-spatial.org" target="_blank">r-spatial</a></li>
+  <li><a href="https://walkerke.github.io/tigris-webinar/#1" target="_blank">Census geographic data in R with tigris</a></li>
+  <li><a href="https://walkerke.github.io" target="_blank">Blog: visualisation and spatial data</a></li>
+</ul>
+
+<h3 id="help">Help</h3>
+
+<ul>
+  <li><a href="http://www.noamross.net/blog/2013/1/7/collaborating-with-r.html?utm_content=buffer5bfad&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank">Don’t R alone! A guide to tools for collaboration with R</a></li>
+  <li><a href="http://sharpsightlabs.com/blog/are-you-fluent-r/" target="_blank">Becoming fluent in R</a></li>
+  <li><a href="http://stackoverflow.com/questions/tagged/r" target="_blank">StackOverflow</a></li>
+</ul>
+
+<h3 id="report-writing--reproducibility">Report writing &amp; reproducibility</h3>
+
+<p>Check out the <a href="https://gkhajduk.github.io/latex-markdown-resources/" target="_blank">LaTeX/markdown</a> and <a href="https://gkhajduk.github.io/reproducible-resources" target="_blank">reproducibility</a> tabs.</p>
+
+<h3 id="other-resources">Other resources</h3>
+
+<ul>
+  <li><a href="http://www.jottr.org" target="_blank">jottR</a></li>
+  <li><a href="http://stats.idre.ucla.edu/r/" target="_blank">UCLA’s stat resources</a></li>
+</ul>
+
+	    
+    </div>
+  </div>
+</div>
+
+ 
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2017
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-93507620-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>LMMs workshop - done!</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="LMMs workshop - done!" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/2017-03-16-LMM-workshop//" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/collaborators">Collaborators</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/R-resources">Analysis - R</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/latex-markdown-resources">LaTeX & Markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Writing - General</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/vc-git-resources">Version Control - Git</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/reproducible-resources">Reproducible Science</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Web Development</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/404">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>LMMs workshop - done!</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 16, 2017</span><br>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+             <p>I ran the <a href="/2017-03-09-mixed-models/" target="_blank">linear mixed effects models</a> workshop yesterday. Since I have almost completely lost my voice I was doubly grateful for Gergana’s assistance! {<a href="https://adventurousandefficient.com" target="_blank">Gergana</a> is one of the people who run the <a href="https://ourcodingclub.github.io" target="_blank">Coding Club</a>}</p>
+
+<p>The workshop proved popular, apparently I even <strong>broke the attendance record</strong> (we run our of chairs in the room too). We had a good mix of undergrads, masters and PhD students. Some of them came to work through the tutorial, but a lot of them (most?) brought their own data that they wanted advice on.</p>
+
+<p>This was a tad surprising - I expected people to have some questions more specific to their problems and data of course, but I didn’t think that quite so many would come to <em>an intro to LMMs</em> to seek advice on problems much beyond the content of the workshop. I guess they saw an opportunity to chat to someone about mixed models and took it - good for them :]</p>
+
+<p><strong>It certainly was a challenge for me!</strong> It’s one thing to write an introductory tutorial and a whole different ball game to advise on complex aspects of mixed models utilising data you have never seen and know nothing about.</p>
+
+<p>I ended up staying for an hour and a half after the workshop and Gergana stayed too, bless her, but I think we have managed to move everybody’s projects forward and people were happy with the help they received. So <strong>I’m calling the workshop a success :]</strong></p>
+
+<p>I’m very proud of the Coding Club team, whose members bravely took on some of the questions: they were thrown into the deep end here. The students were great too, keen to learn and make the most of it.</p>
+
+<p><strong>Well done everyone!</strong></p>
+
+
+	    </article>
+
+<div>
+Tags: 
+ 
+  
+   <a href="/tags#teaching-ref"> • Teaching</a>
+  
+
+    
+<div class="blog-tags"></div>
+                  
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2017-03-09-mixed-models/" data-toggle="tooltip" data-placement="top" title="Introduction to linear mixed models">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2017-03-24-gwu-end-Mar/" data-toggle="tooltip" data-placement="top" title="GWU: end March">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+	    
+        <div class="disqus-comments">
+	        
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'amidstscience';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2017
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-93507620-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+
+
+
+
+  </body>
+</html>

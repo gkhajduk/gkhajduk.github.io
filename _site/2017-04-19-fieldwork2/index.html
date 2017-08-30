@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Fieldwork: Season 2</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="Fieldwork: Season 2" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/2017-04-19-fieldwork2//" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/collaborators">Collaborators</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/R-resources">Analysis - R</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/latex-markdown-resources">LaTeX & Markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Writing - General</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/vc-git-resources">Version Control - Git</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/reproducible-resources">Reproducible Science</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Web Development</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/404">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Fieldwork: Season 2</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 19, 2017</span><br>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+             <p>I realised that I haven’t really published a proper fieldwork update from the last season, so here it is! This was most likely the last field season of my PhD. Photos of Oz wildlife included, so read on and enjoy :]</p>
+
+<h3 id="lets-set-the-scene">Let’s set the scene</h3>
+
+<p>I carry out my fieldwork in <strong>Australia</strong>, specifically in and around the Australian National Botanic Gardens, in Canberra. The Gardens are managed, but provide <strong>fairly natural habitats with lots of shrubbery perfect for the superb fairy-wrens.</strong> It is a truly lovely field site with luxuries few other field sites have - drinking water fountains, toilets and even a cafe, which is great for a sneaky hot chocolate when your hands are stiff from holding the binoculars in the cold.</p>
+
+<p><img src="../img/DSC02660_small.jpg" alt="" /></p>
+
+<p>Yes, in the cold. When I say I work on an Australian species many imagine the tropics or the outback. The scorching sun, hot weather, maybe even the beach. As lovely as it is to be in Oz, as great as the field site is - it most definitely is <strong>not the stereotypical Australian image.</strong> This season, most days the temps didn’t go above 12-13 degrees C during the hottest part of the day. With majority of the work done in the mornings, ~6 degrees was more likely {even colder early on when I was cycling down to work}.</p>
+
+<p><strong>Layers it is!</strong> I was definitely glad for my lovely base layer and my “vaporise” jacket {a great birthday gift from my partner - I’m a sucker for functional stuff}.</p>
+
+<p><img src="../img/IMG_1166_small.jpg" alt="" /></p>
+
+<p>We also had a very <em>very</em> <strong>wet spring this year.</strong> I think we were 1 ml off the record-breaking rainfall, last time it was this wet was in 1976! {or so I’m told}. So imagine <strong>fairly chilly and windy conditions</strong>, rather than hot, and <strong>with quite a few wet days.</strong></p>
+
+<p>Creaking branches and every leaf moving around make it more <strong>tricky to hear and see the birds too;</strong> and when it’s wet the little fluff-balls hide in the bushes and don’t get up to much, so <strong>more often than not running trials in the rain is impossible.</strong></p>
+
+<p>But then again… It was an Australian spring with some beautiful Oz flowers and birds <em>and</em> I got to be outside. So I’m not <em>complaining</em> here, believe me. Just painting you a picture. {using some rather misleading photos as all of them are taken on the sunny days…}</p>
+
+<p><img src="../img/DSC09698_small.jpg" alt="" /></p>
+
+<h3 id="what-do-i-do-during-fieldwork-you-wonder">What do I do during fieldwork, you wonder?</h3>
+
+<p>Let’s start with a superb fairy-wren photo! I was pleased to see birds I got to know during my previous field season - including the handsome Ibu (YYbw) below, who was a helper last year but gained a dominant position this year. Go Ibu!</p>
+
+<p><img src="../img/DSC08253_small.jpg" alt="" /></p>
+
+<p>Back to work: I focus on <strong>courtship displays between related birds.</strong> The males are the ones displaying and ideally I’d like to follow them. But reliably following a tiny bird isn’t easy, especially when there are fences in the way and gates are not placed particularly frequently or strategically!</p>
+
+<p>Instead of running like a headless chicken attempting to follow the boys, <strong>I watch female territories and note who comes to display to the females</strong> and what exactly do those males do during the visit. This is possible, as all our birds <strong>are ringed with colour rings,</strong> so that <strong>we can identify all the individuals in the field.</strong> This year was made trickier by some brand new snazzy looking rings {see the long orangey-red one in the photo below}, which confused my poor brain a bit to start with.</p>
+
+<p><img src="../img/DSC08421_small.jpg" alt="" /></p>
+
+<p><strong>Visits &amp; displays.</strong> Some males just come around to have a look, others strut around in what we call <strong>blue &amp; black display</strong> - raised cheek and head feathers and a little dance, so that the female can truly appreciate the male’s beauty (and not see any of the unattractive brown feathers - those get hidden). Ginwig below demonstrates the raised cheek feathers.</p>
+
+<p>Often the males also <strong>chase females</strong> and sometimes they <strong>bring tiny yellow flowers or petals</strong> - we had a lot of displays with petals this year. My guess is that it had something to do with the unusual weather: the wet conditions allowed tons of acacias to flower, providing an ample supply of petals. Every now and then males might also do a <strong>“seahorse” flight</strong> while leaving for home. It’s an odd, undulating type of flight, very energy consuming. We didn’t get one this year.</p>
+
+<p><img src="../img/DSC04015_small.jpg" alt="" /></p>
+
+<h3 id="i-had-my-very-own-field-assistant">I had my very own field assistant!</h3>
+
+<p>If you follow the blog you might have seen that <strong>I looked for a field assistant to join me</strong> for this field season. I found and hired one - here is Gergana {you can find her <a href="https://adventurousandefficient.com" target="_blank">site here</a>} working hard and sporting our team blue colour:</p>
+
+<p><img src="../img/DSC09378_small.jpg" alt="" /></p>
+
+<p><strong>Gergana did a great job.</strong>  During the previous field season I’d borrow the generic project assistants to help with running trials (you really need at least two people to do them well). This was tricky, as they had plenty of their own work to do and the best time to do my trials was also the best time for them to carry out their other tasks. The <em>prime</em> work time was <strong>a bit more limited this year,</strong> due to the weather: my life was made so much easier by having someone entirely for my own “use”. {cue evil laughter}</p>
+
+<p>We got along really well {if I say so myself} and I appreciated Gergana’s hard work and enthusiasm, as well as our chats, both work &amp; non-work ones. I do hope that she has enjoyed herself and managed to learn something - I really wanted this to be a learning experience for whoever fills in the role. It’s best when both sides benefit.</p>
+
+<p><strong>Here we are, the Superb (fairy-wrens) Team!</strong></p>
+
+<p><img src="../img/IMG_1198_small.jpg" alt="" /></p>
+
+<h3 id="all-work-and-no-play-no">All work and no play? No!</h3>
+
+<p>I moulded our work schedule around the weather: dry = work, rain = time off. That meant less bird watching than last year, but it didn’t mean that we didn’t take any time off at all. That wouldn’t be healthy or fair to Gergana.</p>
+
+<p><strong>What comes next is really just a photo-fest. Enjoy!</strong></p>
+
+<p>Spring in Australia means parrots playing…</p>
+
+<p><img src="../img/DSC07983_small.jpg" alt="" /></p>
+
+<p>… and beautiful blossoms.</p>
+
+<p><img src="../img/DSC08004_small.jpg" alt="" /></p>
+
+<p>But it also means magpies eyeing you up trying to decide whether to attack or not… People tell you about the spiders, the crocs, the snakes, but no-one ever mentions that the first thing to viciously attack you is going to be a magpie!</p>
+
+<p><img src="../img/DSC08104_small.jpg" alt="" /></p>
+
+<p>I also made sure to check up on some non-fairy-wren bird friends on the fieldsite: this lovely satin bowerbird was courting me again, he is a real Casanova.</p>
+
+<p><img src="../img/DSC08143_small.jpg" alt="" /></p>
+
+<p>And the kookaburra, as always keeping an eye on me.</p>
+
+<p><img src="../img/DSC08453_small.jpg" alt="" /></p>
+
+<p>I made sure that we went to hunt down some wombats as Gergana hadn’t seen any <em>non-dead</em> ones before. Couldn’t let her leave Oz without a decent wombat-sighting {although she did see echidnas and I didn’t… I’m suspicious, maybe she hid them all}</p>
+
+<p><img src="../img/DSC08197_small.jpg" alt="" /></p>
+
+<p>Finally, we did manage to do a little bit of birding - targeting the rainbow bee-eaters…</p>
+
+<p><img src="../img/DSC08956_small.jpg" alt="" /></p>
+
+<p>… and coming across the fattest magpie ever!</p>
+
+<p><img src="../img/DSC09273_small.jpg" alt="" /></p>
+
+
+	    </article>
+
+<div>
+Tags: 
+ 
+  
+   <a href="/tags#everyday-phding-ref"> • Everyday phding</a>
+  
+   <a href="/tags#fieldwork-ref"> • Fieldwork</a>
+  
+
+    
+<div class="blog-tags"></div>
+                  
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2017-04-13-gwu-mid-April/" data-toggle="tooltip" data-placement="top" title="GWU: mid April">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2017-07-24-manuscript1/" data-toggle="tooltip" data-placement="top" title="First PhD manuscript submitted!">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+	    
+        <div class="disqus-comments">
+	        
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'amidstscience';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2017
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-93507620-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+
+
+
+
+  </body>
+</html>
