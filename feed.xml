@@ -7,6 +7,17 @@
     <atom:link href="http://gkhajduk.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Cleaning MCMCglmm model outputs</title>
+        <description>
+          
+          Dealing with multiple MCMCglmm model outputs? Here is a a (reasonably) quick way of pulling out and collating model outputs from MCMCglmm objects. Those couple of functions allow you to grab the variable names, posterior means, CIs, effective sample sizes and pMCMC values for both fixed and random effects. A...
+        </description>
+        <pubDate>Wed, 25 Oct 2017 00:00:00 +0100</pubDate>
+        <link>http://gkhajduk.github.io/2017-10-25-cleanMCMCglmm/</link>
+        <guid isPermaLink="true">http://gkhajduk.github.io/2017-10-25-cleanMCMCglmm/</guid>
+      </item>
+    
+      <item>
         <title>ESEB 2017</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
         <link>http://gkhajduk.github.io/2017-01-07-looking-back-work/</link>
         <guid isPermaLink="true">http://gkhajduk.github.io/2017-01-07-looking-back-work/</guid>
-      </item>
-    
-      <item>
-        <title>Looking back at 2016: Personal Edition</title>
-        <description>
-          
-          I’m glad I did this: looking back I actually managed to do a very decent amount of stuff. During the year quite a few times it felt like I was just failing miserably at all of it: falling asleep trying to read, spending more time waiting for the paint to...
-        </description>
-        <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://gkhajduk.github.io/2017-01-03-looking-back-personal/</link>
-        <guid isPermaLink="true">http://gkhajduk.github.io/2017-01-03-looking-back-personal/</guid>
       </item>
     
   </channel>

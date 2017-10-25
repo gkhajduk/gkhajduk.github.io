@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Cleaning MCMCglmm model outputs</title>
+
+  <meta name="author" content="Gabriela K Hajduk" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Gabriela K Hajduk - Gabriela K Hajduk's personal website" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="Cleaning MCMCglmm model outputs" />
+  <meta property="og:type" content="website" />
+  
+  
+  <meta property="og:url" content="http://gkhajduk.github.io/2017-10-25-cleanMCMCglmm//" />
+  
+  
+  
+  <meta property="og:image" content="http://gkhajduk.github.io/img/avatar-icon.png" />
+  
+
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://gkhajduk.github.io">Gabriela K Hajduk</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Blog</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/tags">Archive</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/about">About</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/bio">Bio</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Research Activities</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/publications">Publications</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/presentations">Presentations</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/collaborators">Collaborators</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/funding">Funding & Awards</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/teaching">Teaching</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/R-resources">Analysis - R</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/latex-markdown-resources">LaTeX & Markdown</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Writing - General</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/vc-git-resources">Version Control - Git</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/reproducible-resources">Reproducible Science</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="/404">Web Development</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/404">CV</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://gkhajduk.github.io ">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Cleaning MCMCglmm model outputs</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on October 25, 2017</span><br>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+             <h3 id="dealing-with-multiple-mcmcglmm-model-outputs">Dealing with multiple MCMCglmm model outputs?</h3>
+
+<p>Here is a a (reasonably) quick way of pulling out and collating model outputs from <code class="highlighter-rouge">MCMCglmm</code> objects. Those couple of functions allow you to grab the variable names, posterior means, CIs, effective sample sizes and <code class="highlighter-rouge">pMCMC</code> values for both fixed and random effects. A <code class="highlighter-rouge">data.frame</code> is returned and can then be used for tabulation or plotting purposes. It’s particularly handy when you have multiple models to deal with - that’s exactly why I needed it. It’s a <em>quick and dirty</em> way, but it worked great for what I needed it do it.</p>
+
+<h2 id="code">Code</h2>
+
+<h3 id="sort-out-your-data-and-models">Sort out your data and models</h3>
+
+<p>First, load your models and packages (you will need <code class="highlighter-rouge">dplyr</code>):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">load</span><span class="p">(</span><span class="s2">"model1.RData"</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span><span class="s2">"model2.RData"</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>  <span class="c1"># need dplyr for the bind_rows function
+</span></code></pre>
+</div>
+
+<h3 id="functions">Functions</h3>
+
+<p>The main function <code class="highlighter-rouge">clean.MCMC()</code> does most of the heavy lifting:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    <span class="n">clean.MCMC</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sols</span> <span class="o">&lt;-</span> <span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="n">solutions</span>  <span class="c1">## pull out relevant info from model summary
+</span>    <span class="n">Gcovs</span> <span class="o">&lt;-</span> <span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="n">Gcovariances</span>
+    <span class="n">Rcovs</span> <span class="o">&lt;-</span> <span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="n">Rcovariances</span>
+    <span class="n">fixed</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">row.names</span><span class="p">(</span><span class="n">sols</span><span class="p">),</span> <span class="n">sols</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>  <span class="c1">## convert to dataframes with the row.names as the first col
+</span>    <span class="n">random</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">row.names</span><span class="p">(</span><span class="n">Gcovs</span><span class="p">),</span> <span class="n">Gcovs</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+    <span class="n">residual</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">row.names</span><span class="p">(</span><span class="n">Rcovs</span><span class="p">),</span> <span class="n">Rcovs</span><span class="p">,</span> <span class="n">row.names</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">)</span>
+    <span class="n">names</span><span class="p">(</span><span class="n">fixed</span><span class="p">)[</span><span class="n">names</span><span class="p">(</span><span class="n">fixed</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"row.names.sols."</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"variable"</span>  <span class="c1">## change the columns names to variable, so they all match
+</span>    <span class="n">names</span><span class="p">(</span><span class="n">random</span><span class="p">)[</span><span class="n">names</span><span class="p">(</span><span class="n">random</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"row.names.Gcovs."</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"variable"</span>
+    <span class="n">names</span><span class="p">(</span><span class="n">residual</span><span class="p">)[</span><span class="n">names</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"row.names.Rcovs."</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"variable"</span>
+    <span class="n">fixed</span><span class="o">$</span><span class="n">effect</span> <span class="o">&lt;-</span> <span class="s2">"fixed"</span>  <span class="c1">## add ID column for type of effect (fixed, random, residual)
+</span>    <span class="n">random</span><span class="o">$</span><span class="n">effect</span> <span class="o">&lt;-</span> <span class="s2">"random"</span>
+    <span class="n">residual</span><span class="o">$</span><span class="n">effect</span> <span class="o">&lt;-</span> <span class="s2">"residual"</span>
+    <span class="n">modelTerms</span> <span class="o">&lt;-</span> <span class="n">as.data.frame</span><span class="p">(</span><span class="n">bind_rows</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span> <span class="n">random</span><span class="p">,</span> <span class="n">residual</span><span class="p">))</span>  <span class="c1"># merge it all together
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The secondary function comes in when you have multiple models and need to add model names in as identifiers:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">getName.MCMC</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">deparse</span><span class="p">(</span><span class="n">substitute</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># add the model name
+</span></code></pre>
+</div>
+
+<h3 id="try-it">Try it!</h3>
+
+<p>Try it with one model:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">oneModel</span> <span class="o">&lt;-</span> <span class="n">clean.MCMC</span><span class="p">(</span><span class="n">model1</span><span class="p">)</span>  <span class="c1"># get all the info from summary(modelName)
+</span><span class="n">oneModel</span><span class="o">$</span><span class="n">modelName</span> <span class="o">&lt;-</span> <span class="n">getName.MCMC</span><span class="p">(</span><span class="n">model1</span><span class="p">)</span>  <span class="c1"># add the model's name in a new column
+</span><span class="n">oneModel</span>  <span class="c1"># check out the created dataframe
+</span></code></pre>
+</div>
+
+<p>And with multiple models… Note that the <code class="highlighter-rouge">getName.MCMC</code> won’t work nicely with a list unfortunately. There is probably a really easy way to fix that, but at the time a little workaround did the trick for me.</p>
+
+<p>Manually create lists of input models:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dataList</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="n">model2</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Manually create lists of input model names:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dataListNames</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="s2">"model1"</span><span class="p">,</span> <span class="s2">"model2"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Get the <code class="highlighter-rouge">clean.MCMC</code> outputs and add <code class="highlighter-rouge">modelName</code> columns to each element for ID purposes:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">readyList</span> <span class="o">&lt;-</span> <span class="n">mapply</span><span class="p">(</span><span class="n">cbind</span><span class="p">,</span> <span class="n">lapply</span><span class="p">(</span><span class="n">dataList</span><span class="p">,</span> <span class="n">clean.MCMC</span><span class="p">),</span> <span class="s2">"modelName"</span> <span class="o">=</span> <span class="n">dataListNames</span><span class="p">,</span> <span class="n">SIMPLIFY</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Turn the list of <code class="highlighter-rouge">data.frames</code> into one big <code class="highlighter-rouge">data.frame</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mcmcOutputs</span> <span class="o">&lt;-</span> <span class="n">as.data.frame</span><span class="p">(</span><span class="n">do.call</span><span class="p">(</span><span class="n">rbind</span><span class="p">,</span> <span class="n">readyList</span><span class="p">),</span> <span class="n">stringsAsFactors</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Once you prepped the output as above you can use <code class="highlighter-rouge">stargazer</code> to create a nice summary table:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">stargazer</span><span class="p">)</span>
+<span class="n">stargazer</span><span class="p">(</span><span class="n">mcmcOutputs</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"text"</span><span class="p">,</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>You can also plot lots of things, e.g. pull out the estimates for various models and plot those.</p>
+
+	    </article>
+
+<div>
+Tags: 
+ 
+  
+   <a href="/tags#r-ref"> • R</a>
+  
+   <a href="/tags#resources-ref"> • Resources</a>
+  
+
+    
+<div class="blog-tags"></div>
+                  
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2017-08-26-eseb/" data-toggle="tooltip" data-placement="top" title="ESEB 2017">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+	    
+        <div class="disqus-comments">
+	        
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	    var disqus_shortname = 'amidstscience';
+	    // ensure that pages with query string get the same discussion
+            var url_parts = window.location.href.split("?");
+            var disqus_url = url_parts[0];	    
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/gkhajduk" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/AmidstScience" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:gkhajduk@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/https://uk.linkedin.com/in/gabriela-karolina-hajduk-99441639" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  		  
+        </ul>
+        <p class="copyright text-muted">
+		  Gabriela K Hajduk
+		  &nbsp;&bull;&nbsp;
+		  2017
+		  
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://gkhajduk.github.io">gkhajduk.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+
+  
+</footer>
+
+
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-93507620-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+
+
+
+
+  </body>
+</html>
